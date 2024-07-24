@@ -14,7 +14,7 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "https://startech-ecom-app-psi.vercel.app",
+    origin: "https://startech-ecom.vercel.app/",
     allowedHeaders: ["Content-Type", "Authorization", "auth-token"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
