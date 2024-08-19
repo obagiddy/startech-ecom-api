@@ -17,6 +17,6 @@ const upload = multer({storage: storage})
 const router = express.Router()
 
 router.post("/api/product", upload.single("img"), auth, admin, productController.createProduct)
-router.get("/api/product", productController.getAllProduct)
+router.get("/api/product", productController.getProduct)
 
 module.exports = router
