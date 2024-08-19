@@ -24,7 +24,7 @@ exports.createProduct = async(req, res) => {
     };
 };
 
-exports.getAllProduct = async (req, res) => {
+exports.getProduct = async (req, res) => {
     try {
         const product = await Product.find().populate("category")
         if (product) {
