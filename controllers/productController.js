@@ -1,13 +1,12 @@
-const Product = require ("../models/product");
-const { validateProduct } = require ("../validator");
+const Product = require("../models/product")
+const { validateProduct } = require("../validator")
 
-exports.createProduct = async(req, res) => {
-    const {error} = validateProduct(req.body);
+exports.createProduct = async(req, res)=>{
+    const { error } = validateProduct(req.body)
     if (error) {
-        res.json(error.details[0].message);
+        res.json(error.details[0].message)
     }
     try {
-
         const product = new Product({
             category: req.body.category,
             name: req.body.name,
@@ -23,16 +22,14 @@ exports.createProduct = async(req, res) => {
         res.json(productItem)
     } catch (error) {
         res.json({message: error.message})
-    };
-};
+    }
+}
 
-exports.getProduct = async (req, res) => {
+exports.getProduct = async(req,res)=>{
     try {
-        const product = await Product.find().populate("category")
-        if (product) {
-            res.json(product)
-        }
+        let allProduct = await Product.find().populate("category")
+        res.json(allProduct)  
     } catch (error) {
         console.log(error);
-    };
-};
+    }
+}
